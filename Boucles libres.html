@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boucles libres – routines cheveux ondulés, bouclés, crépus</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAC8D5;--surface:#FFF7F9;--ink:#4A1A36;--muted:#6E2F52;--accent:#F58FB5;--accent-ink:#4A1A36;--plum:#A3205C;--line:#F27A9C;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#2A1220;--surface:#3A1A2E;--ink:#FFE8F1;--muted:#E3B5CB;--accent:#FF9CC5;--accent-ink:#3A1228;--plum:#E0699F;--line:#5A2B44}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(circle at 95% 0,rgba(245,143,181,.35),transparent 45%);background-attachment:fixed;color:var(--ink);font-family:"Quicksand",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;font-size:17px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:18px;justify-content:space-between;align-items:center;padding:18px 0;flex-wrap:wrap}
+nav b{font-family:"Pacifico",cursive;font-weight:400;font-size:24px;color:var(--plum)}
+nav div{display:flex;gap:16px;flex-wrap:wrap}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding:36px 0 64px}
+h1{font-family:"Pacifico",cursive;font-size:clamp(34px,6vw,58px);line-height:1.2;margin:0 0 20px;font-weight:400;color:var(--plum)}
+h2{font-family:"Pacifico",cursive;font-size:clamp(26px,4vw,36px);margin:0 0 12px;line-height:1.3;font-weight:400;color:var(--plum)}
+h3{margin:0 0 6px;font-size:19px}
+p{max-width:62ch;margin:0 0 14px}
+.muted{color:var(--muted)}
+.btn{display:inline-block;background:linear-gradient(135deg,#FFB8D5,#F06FA3);color:#4A1A36;border:0;border-radius:999px;padding:14px 30px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 6px 16px rgba(240,111,163,.45)}
+.btn.alt{background:transparent;border:2px solid var(--ink);color:var(--ink)}
+section{padding:56px 0;border-top:3px dotted var(--line)}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 8px 20px rgba(245,143,181,.18)}
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.opts button{background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:12px 20px;font:inherit;cursor:pointer}
+.opts button:hover{border-color:var(--plum)}
+.opts button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-weight:600;font-size:18px}
+#result{margin-top:24px}
+#result ol{padding-left:20px;margin:12px 0}
+#result li{margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.steps{display:grid;gap:14px}
+.steps .card{display:grid;grid-template-columns:auto 1fr;gap:16px}
+.steps .n{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:22px}
+ul.ing{padding-left:18px;margin:8px 0}
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Navigation principale">
+<b>Boucles libres</b>
+<div><a href="#quiz">Quiz</a><a href="#routine">Routine</a><a href="#recettes">Recettes DIY</a></div>
+</nav>
+
+<header class="hero">
+<div>
+<h1>Tes boucles, ta routine, gratuite pour tous.</h1>
+<p>Boucles libres est un projet open source : des conseils et des recettes sur les cheveux ondulés, bouclés et crépus, partagés par la communauté et accessibles à tout le monde, sans rien payer.</p>
+<a class="btn" href="#quiz">Trouver ma routine ✨</a>
+</div>
+<svg viewBox="0 0 300 300" role="img" aria-label="Dessin de boucles roses" width="100%">
+<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3205C"/><stop offset="1" stop-color="#F58FB5"/></linearGradient><path id="p2" d="M0 0c26 5 26 33 0 38c-26 5-26 33 0 38c26 5 26 33 0 38c-26 5-26 33 0 38"/><path id="p3" d="M0 0c26 5 26 33 0 38c-26 5-26 33 0 38c26 5 26 33 0 38c-26 5-26 33 0 38c26 5 26 33 0 38c-26 5-26 33 0 38"/></defs>
+<circle cx="150" cy="150" r="140" fill="#FFF3F8" opacity=".55"/>
+<g fill="none" stroke="url(#cg)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><use href="#p2" transform="translate(55 60)"/><use href="#p3" transform="translate(105 35)"/><use href="#p3" transform="translate(155 45)"/><use href="#p3" transform="translate(205 35)"/><use href="#p2" transform="translate(255 65)"/></g>
+<g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".4"><use href="#p2" transform="translate(52 60)"/><use href="#p3" transform="translate(102 35)"/><use href="#p3" transform="translate(152 45)"/><use href="#p3" transform="translate(202 35)"/><use href="#p2" transform="translate(252 65)"/></g>
+<text x="250" y="40" font-size="26" fill="#F58FB5">✦</text><text x="18" y="50" font-size="20" fill="#A3205C">✦</text>
+</svg>
+</header>
+
+<section id="quiz" aria-labelledby="quiz-t">
+<h2 id="quiz-t">Le quiz diagnostic</h2>
+<p class="muted">Trois questions, quelques clics. Ta routine s’affiche dès que tu as tout répondu.</p>
+<div class="card">
+<fieldset data-q="loop"><legend>Quel est ton type de boucle ?</legend>
+<div class="opts">
+<button type="button" aria-pressed="false" data-v="ondules">Ondulés (2A-2C)</button>
+<button type="button" aria-pressed="false" data-v="boucles">Bouclés (3A-3C)</button>
+<button type="button" aria-pressed="false" data-v="crepus">Crépus (4A-4C)</button>
+</div></fieldset>
+<fieldset data-q="need"><legend>Ton besoin principal ?</legend>
+<div class="opts">
+<button type="button" aria-pressed="false" data-v="hydratation">Hydratation</button>
+<button type="button" aria-pressed="false" data-v="demelage">Démêlage</button>
+<button type="button" aria-pressed="false" data-v="volume">Volume</button>
+<button type="button" aria-pressed="false" data-v="frisottis">Anti-frisottis</button>
+</div></fieldset>
+<fieldset data-q="state"><legend>L’état de tes cheveux ?</legend>
+<div class="opts">
+<button type="button" aria-pressed="false" data-v="secs">Secs</button>
+<button type="button" aria-pressed="false" data-v="normaux">Normaux</button>
+<button type="button" aria-pressed="false" data-v="abimes">Abîmés</button>
+</div></fieldset>
+<div id="result" aria-live="polite"><p class="muted">Réponds aux trois questions pour voir ta routine.</p></div>
+</div>
+</section>
+
+<section id="routine" aria-labelledby="routine-t">
+<h2 id="routine-t">La routine, étape par étape</h2>
+<div class="steps">
+<div class="card"><span class="n">1</span><div><h3>Lavage et soin</h3><p>Lave avec un shampoing doux, puis applique un masque hydratant, par exemple banane et yaourt (recette plus bas). Laisse poser 15 à 20 minutes et rince à l’eau tiède.</p></div></div>
+<div class="card"><span class="n">2</span><div><h3>Coiffage</h3><p>Applique la crème bouclante sur cheveux mouillés, mèche par mèche. Ne les frotte pas : tu peux les presser doucement avec un t-shirt en coton.</p></div></div>
+<div class="card"><span class="n">3</span><div><h3>Refresh au quotidien</h3><p>Dans un spray rempli d’eau, dilue une noisette de crème bouclante. Vaporise sur les boucles le matin pour les réveiller, puis façonne-les avec les doigts.</p></div></div>
+</div>
+</section>
+
+<section id="recettes" aria-labelledby="rec-t">
+<h2 id="rec-t">Recettes DIY open source</h2>
+<p class="muted">Des recettes maison économiques, proposées par la communauté. Teste-les sur une petite mèche d’abord.</p>
+<div class="grid">
+<div class="card"><h3>Gel de lin</h3><ul class="ing"><li>2 c. à soupe de graines de lin</li><li>250 ml d’eau</li></ul><p>Fais bouillir à feu doux 5 à 10 minutes en remuant, jusqu’à obtenir une texture gélatineuse. Filtre dans un linge fin, laisse refroidir et garde-le au frigo environ une semaine.</p></div>
+<div class="card"><h3>Masque banane-yaourt</h3><ul class="ing"><li>1 banane bien mûre</li><li>2 c. à soupe de yaourt nature</li><li>1 c. à café d’huile végétale (facultatif)</li></ul><p>Écrase la banane en purée lisse, mélange avec le reste et applique sur cheveux humides. Pose 20 minutes, puis rince bien.</p></div>
+<div class="card"><h3>Spray refresh</h3><ul class="ing"><li>1 flacon spray d’eau</li><li>1 noisette de crème bouclante</li></ul><p>Dilue la crème dans l’eau en secouant bien. Utilise-le le matin, à secouer avant chaque usage.</p></div>
+</div>
+<p style="margin-top:20px">Tu as une recette à partager ? Ce site est open source : propose-la à la communauté.</p>
+</section>
+
+<footer>Boucles libres – savoirs gratuits, à partager et à améliorer ensemble.</footer>
+</div>
+
+<script>
+(function(){
+var ans={};
+var loopTxt={ondules:"Tes ondulations aiment les textures légères : une crème fluide ou une mousse, pour ne pas les alourdir.",boucles:"Tes boucles ont besoin d’une crème bouclante riche et d’un gel pour garder leur forme.",crepus:"Tes boucles serrées demandent une hydratation généreuse et des produits plus riches, comme les beurres végétaux."};
+var needTxt={hydratation:"Fais un masque hydratant banane-yaourt chaque semaine et ajoute un soin sans rinçage après le lavage.",demelage:"Démêle uniquement sur cheveux mouillés et enduits d’après-shampoing, avec les doigts ou un peigne à dents larges, des pointes vers les racines.",volume:"Applique les produits en rinçant peu et sèche la tête à l’envers, ou avec un diffuseur, pour décoller les racines.",frisottis:"Scelle avec du gel de lin sur cheveux mouillés et ne touche plus tes boucles tant qu’elles ne sont pas sèches."};
+var stateTxt={secs:"Cheveux secs : lave-les moins souvent (1 à 2 fois par semaine) et utilise le masque après chaque lavage.",normaux:"Cheveux normaux : garde un masque par semaine et ajuste selon la météo.",abimes:"Cheveux abîmés : coupe les pointes fourchues, évite la chaleur et fais un masque hydratant deux fois par semaine."};
+function render(){
+var r=document.getElementById("result");
+if(!(ans.loop&&ans.need&&ans.state)){return}
+r.innerHTML="<h3>Ta routine idéale</h3><ol><li><b>Lavage et soin :</b> "+stateTxt[ans.state]+"</li><li><b>Coiffage :</b> "+loopTxt[ans.loop]+" Applique-la sur cheveux mouillés.</li><li><b>Ton besoin principal :</b> "+needTxt[ans.need]+"</li><li><b>Refresh du matin :</b> spray d’eau avec une noisette de crème bouclante.</li></ol><a class=\"btn alt\" href=\"#recettes\">Voir les recettes DIY</a>";
+}
+document.querySelectorAll("fieldset[data-q]").forEach(function(fs){
+fs.querySelectorAll("button").forEach(function(b){
+b.addEventListener("click",function(){
+fs.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+b.setAttribute("aria-pressed","true");
+ans[fs.dataset.q]=b.dataset.v;
+render();
+});
+});
+});
+})();
+</script>
+</body>
+</html>
